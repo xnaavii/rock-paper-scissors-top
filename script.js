@@ -25,11 +25,6 @@ function playGame() {
   let humanScore = 0;
   let computerScore = 0;
 
-  // Play 5 rounds
-  for (let i = 1; i <= 5; i++) {
-    playRound(getHumanChoice(), getComputerChoice());
-  }
-
   function playRound(humanChoice, computerChoice) {
     // Formats the human choice to lower case
     const humanChoiceLower = humanChoice.toLowerCase().trim();
