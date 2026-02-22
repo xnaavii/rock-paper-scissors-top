@@ -25,6 +25,17 @@ function playGame() {
   let humanScore = 0;
   let computerScore = 0;
 
+  // Get all buttons
+  const buttons = document.querySelectorAll('button');
+
+  // Attach an event listener to each of the button
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const humanChoice = btn.dataset.selection;
+      playRound(humanChoice, getComputerChoice());
+    });
+  });
+
   function playRound(humanChoice, computerChoice) {
     // Formats the human choice to lower case
     const humanChoiceLower = humanChoice.toLowerCase().trim();
