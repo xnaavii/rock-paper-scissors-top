@@ -31,6 +31,13 @@ function playGame() {
   // Get results div
   const results = document.querySelector('#results');
 
+  // Score Elements
+  const scoreHuman = document.querySelector('#human');
+  const scoreComputer = document.querySelector('#computer');
+
+  // Display initial score = 0 - 0
+  showScore(humanScore, computerScore);
+
   // Attach an event listener to each of the button
   buttons.forEach((btn) => {
     btn.addEventListener('click', () => {
@@ -38,6 +45,11 @@ function playGame() {
       playRound(humanChoice, getComputerChoice());
     });
   });
+
+  function showScore(humanScore, computerScore) {
+    scoreHuman.textContent = humanScore;
+    scoreComputer.textContent = computerScore;
+  }
 
   function showResult(string) {
     const resultsPara = document.createElement('p');
@@ -75,7 +87,7 @@ function playGame() {
     }
 
     // Log the score
-    console.log(`SCORE: Human: ${humanScore}, Computer: ${computerScore}`);
+    showScore(humanScore, computerScore);
   }
 }
 
