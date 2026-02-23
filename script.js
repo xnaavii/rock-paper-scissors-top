@@ -28,6 +28,9 @@ function playGame() {
   // Get all buttons
   const buttons = document.querySelectorAll('button');
 
+  // Get results div
+  const results = document.querySelector('#results');
+
   // Attach an event listener to each of the button
   buttons.forEach((btn) => {
     btn.addEventListener('click', () => {
@@ -35,6 +38,12 @@ function playGame() {
       playRound(humanChoice, getComputerChoice());
     });
   });
+
+  function showResult(string) {
+    const resultsPara = document.createElement('p');
+    resultsPara.textContent = string;
+    results.appendChild(resultsPara);
+  }
 
   function playRound(humanChoice, computerChoice) {
     // Formats the human choice to lower case
@@ -44,25 +53,25 @@ function playGame() {
     // Logic for checking which object defeats which
     // Increments the score based on who won
     if (humanChoiceLower === computerChoice) {
-      console.log('DRAW! Try again.');
+      showResult('DRAW! Try again.');
     } else if (humanChoiceLower === 'rock' && computerChoice === 'scissors') {
       humanScore++;
-      console.log('You win! Rock beats Scissors!');
+      showResult('You win! Rock beats Scissors!');
     } else if (computerChoice === 'rock' && humanChoiceLower === 'scissors') {
       computerScore++;
-      console.log('You lose! Rock beats Scissors!');
+      showResult('You lose! Rock beats Scissors!');
     } else if (humanChoiceLower === 'scissors' && computerChoice === 'paper') {
       humanScore++;
-      console.log('You win! Scissors beats Paper!');
+      showResult('You win! Scissors beats Paper!');
     } else if (computerChoice === 'scissors' && humanChoiceLower === 'paper') {
       computerScore++;
-      console.log('You lose! Scissors beats Paper!');
+      showResult('You lose! Scissors beats Paper!');
     } else if (humanChoiceLower === 'paper' && computerChoice === 'rock') {
       humanScore++;
-      console.log('You win! Paper beats Rock!');
+      showResult('You win! Paper beats Rock!');
     } else if (computerChoice === 'paper' && humanChoiceLower === 'rock') {
       computerScore++;
-      console.log('You lose! Paper beats Rock!');
+      showResult('You lose! Paper beats Rock!');
     }
 
     // Log the score
