@@ -14,11 +14,11 @@ function getComputerChoice() {
   }
 }
 
-function getHumanChoice() {
-  // Prompts user for the choice and returns it
-  let humanChoice = prompt("Choose: 'rock', 'paper' or 'scissors'");
-  return humanChoice;
-}
+// function getHumanChoice() {
+//   // Prompts user for the choice and returns it
+//   let humanChoice = prompt("Choose: 'rock', 'paper' or 'scissors'");
+//   return humanChoice;
+// }
 
 function playGame() {
   // Track game score
@@ -64,7 +64,11 @@ function playGame() {
     // rock > scissors, scissors > paper, paper > rock
     // Logic for checking which object defeats which
     // Increments the score based on who won
-    if (humanChoiceLower === computerChoice) {
+    if (humanScore === 5) {
+      showResult('Human wins');
+    } else if (computerScore === 5) {
+      showResult('Computer wins');
+    } else if (humanChoiceLower === computerChoice) {
       showResult('DRAW! Try again.');
     } else if (humanChoiceLower === 'rock' && computerChoice === 'scissors') {
       humanScore++;
